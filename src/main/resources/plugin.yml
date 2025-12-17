@@ -1,0 +1,11 @@
+name: PackManager
+version: 1.0
+main: me.junioraww.packmanager.Main
+api-version: 1.21
+commands:
+  pack:
+    description: Main command to manage resource packs
+    usage: /pack [args]
+permissions:
+  packmanager.admin:
+    default: op
