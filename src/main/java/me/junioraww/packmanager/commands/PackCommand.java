@@ -45,7 +45,7 @@ public class PackCommand implements CommandExecutor, TabCompleter {
       return true;
     }
 
-    if (!sender.hasPermission("customtweaks.admin")) {
+    if (!sender.hasPermission("packs.admin")) {
       sender.sendMessage(Component.text("Нет прав.").color(NamedTextColor.RED));
       return true;
     }

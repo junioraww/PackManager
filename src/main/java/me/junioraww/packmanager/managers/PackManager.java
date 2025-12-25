@@ -78,7 +78,7 @@ public class PackManager {
         pack.hash = ResourcePackUtil.sha1(tempFile);
         pack.uuid = ResourcePackUtil.uuidFromHash(pack.hash);
 
-        plugin.getLogger().warning("Hash " + Arrays.toString(pack.hash));
+        plugin.getLogger().warning("Loaded " + pack.name);
 
         loadedPacks.put(key, pack);
       } catch (Exception e) {
@@ -135,6 +135,8 @@ public class PackManager {
       lore.add(Component.text("По умолчанию: " + (pack.isDefault ? "да" : "нет"))
               .color(NamedTextColor.GRAY).decoration(TextDecoration.ITALIC, false));
       meta.lore(lore);
+
+      meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
       if (isActive) {
         meta.addEnchant(Enchantment.POWER, 1, true);

@@ -7,5 +7,5 @@ commands:
     description: Main command to manage resource packs
     usage: /pack [args]
 permissions:
-  packmanager.admin:
+  packs.admin:
     default: op

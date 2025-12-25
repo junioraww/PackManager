@@ -68,11 +68,12 @@ public class EventsListener implements Listener {
   private void updateLoreStatus(ItemMeta meta, boolean active) {
     List<Component> currentLore = meta.lore();
     if (currentLore != null && currentLore.size() > 2) {
-      currentLore.set(currentLore.size() - 1,
+      currentLore.set(currentLore.size() - 2,
               Component.text("Статус: ").color(NamedTextColor.GRAY)
                       .append(active
-                              ? Component.text("ВКЛЮЧЕН").color(NamedTextColor.GREEN)
-                              : Component.text("ВЫКЛЮЧЕН").color(NamedTextColor.RED)));
+                              ? Component.text("включено").color(NamedTextColor.GREEN)
+                              : Component.text("выключено").color(NamedTextColor.RED))
+                      .decoration(TextDecoration.ITALIC, false));
       meta.lore(currentLore);
     }
   }
