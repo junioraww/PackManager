@@ -14,6 +14,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
@@ -37,6 +38,12 @@ public class EventsListener implements Listener {
     Bukkit.getScheduler().runTaskLater(me.junioraww.packmanager.Main.getPlugin(), () -> {
       packManager.sendPacksToPlayer(event.getPlayer());
     }, 20L);
+  }
+
+  @EventHandler
+  public void onInventoryDrag(InventoryDragEvent e) {
+    if (!e.getView().title().equals(Component.text(PackManager.MENU_TITLE))) return;
+    e.setCancelled(true);
   }
 
   @EventHandler
