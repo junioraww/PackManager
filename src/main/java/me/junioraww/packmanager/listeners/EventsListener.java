@@ -24,6 +24,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class EventsListener implements Listener {
@@ -35,9 +36,9 @@ public class EventsListener implements Listener {
 
   @EventHandler
   public void onJoin(PlayerJoinEvent event) {
-    Bukkit.getScheduler().runTaskLater(me.junioraww.packmanager.Main.getPlugin(), () -> {
+    Bukkit.getAsyncScheduler().runDelayed(me.junioraww.packmanager.Main.getPlugin(), task -> {
       packManager.sendPacksToPlayer(event.getPlayer());
-    }, 20L);
+    }, 1L, TimeUnit.SECONDS);
   }
 
   @EventHandler
